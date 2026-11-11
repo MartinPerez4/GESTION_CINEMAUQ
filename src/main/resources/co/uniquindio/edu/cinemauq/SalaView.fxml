@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.uniquindio.edu.cinemauq.controller.SalaController">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+    <VBox spacing="10.0" prefWidth="300.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8;">
+        <Label text="Gestión de Salas" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <Label text="Código de Sala:" />
+        <TextField fx:id="txtCodigoSala" promptText="Ej: SALA-01" />
+        <Label text="Nombre o Número:" />
+        <TextField fx:id="txtNombreSala" promptText="Ej: Sala 1 VIP" />
+        <Label text="Capacidad (Asientos):" />
+        <TextField fx:id="txtCapacidad" promptText="Ej: 30" />
+        <Label text="Estado:" />
+        <ComboBox fx:id="cbEstadoSala" maxWidth="1.7976931348623157E308" promptText="Seleccionar Estado" />
+        <HBox spacing="10.0" style="-fx-padding: 10 0 0 0;">
+            <Button text="Registrar Sala" onAction="#handleRegistrarSala" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308"/>
+            <Button text="Limpiar" onAction="#handleLimpiar" style="-fx-background-color: #7f8c8d; -fx-text-fill: white;" />
+        </HBox>
+    </VBox>
+
+    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+        <Label text="Salas Registradas" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <TableView fx:id="tableSalas" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn text="Código" prefWidth="100.0" />
+                <TableColumn text="Nombre / Número" prefWidth="150.0" />
+                <TableColumn text="Capacidad" prefWidth="110.0" />
+                <TableColumn text="Estado" prefWidth="130.0" />
+            </columns>
+        </TableView>
+    </VBox>
+</HBox>

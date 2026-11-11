@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.uniquindio.edu.cinemauq.controller.VentaController">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+    <VBox spacing="10.0" prefWidth="340.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8;">
+        <Label text="🎟️ Venta de Entradas" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <Label text="Seleccionar Función:" />
+        <ComboBox fx:id="cbFunciones" maxWidth="1.7976931348623157E308" promptText="Función disponible" />
+        <Label text="Identificación Cliente:" />
+        <TextField fx:id="txtClienteId" promptText="Cédula o ID" />
+        <Label text="Nombre Cliente:" />
+        <TextField fx:id="txtClienteNombre" promptText="Nombre completo" />
+        <Label text="Tipo de Entrada:" />
+        <ComboBox fx:id="cbTipoEntrada" maxWidth="1.7976931348623157E308" promptText="General / Estudiante / Niño / Adulto Mayor" />
+        <Label text="Asiento Seleccionado:" />
+        <TextField fx:id="txtAsientoSeleccionado" editable="false" promptText="Selecciona en el mapa ->" style="-fx-background-color: #ecf0f1;" />
+        <HBox spacing="10.0" style="-fx-padding: 10 0 0 0;">
+            <Button text="Completar Venta" onAction="#handleVender" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308"/>
+            <Button text="Cancelar Venta" onAction="#handleCancelarVenta" style="-fx-background-color: #c0392b; -fx-text-fill: white;" />
+        </HBox>
+    </VBox>
+
+    <VBox spacing="10.0" HBox.hgrow="ALWAYS" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8;">
+        <Label text="Selección de Asientos" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <Label text="[ P A N T A L A ]" alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-background-color: #bdc3c7; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 6;" />
+        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background: transparent; -fx-background-color: transparent;">
+            <content>
+                <GridPane fx:id="gridAsientos" hgap="10.0" vgap="10.0" alignment="CENTER" style="-fx-padding: 20;" />
+            </content>
+        </ScrollPane>
+    </VBox>
+</HBox>

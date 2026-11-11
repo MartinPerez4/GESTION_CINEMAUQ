@@ -1,0 +1,41 @@
+/* Fondo general */
+.root {
+    -fx-background-color: #0d1117;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* Tarjetas y contenedores oscuros */
+.card {
+    -fx-background-color: #161b22;
+    -fx-background-radius: 12px;
+    -fx-padding: 15px;
+}
+
+/* Botones principales modernos */
+.button-primary {
+    -fx-background-color: #00b4d8;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20px;
+    -fx-cursor: hand;
+}
+
+.button-primary:hover {
+    -fx-background-color: #90e0ef;
+}
+
+/* Asientos del cine por defecto (Disponibles) */
+.asiento-disponible {
+    -fx-background-color: #21262d;
+    -fx-text-fill: #8c92a4;
+    -fx-background-radius: 6px;
+    -fx-font-size: 10px;
+}
+
+/* Asiento seleccionado */
+.asiento-seleccionado {
+    -fx-background-color: #00b4d8;
+    -fx-text-fill: white;
+    -fx-background-radius: 6px;
+    -fx-font-size: 10px;
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.uniquindio.edu.cinemauq.controller.FuncionController">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+    <VBox spacing="10.0" prefWidth="320.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8;">
+        <Label text="Programar Función" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <Label text="Seleccionar Película:" />
+        <ComboBox fx:id="cbPeliculas" maxWidth="1.7976931348623157E308" promptText="Película" />
+        <Label text="Seleccionar Sala:" />
+        <ComboBox fx:id="cbSalas" maxWidth="1.7976931348623157E308" promptText="Sala" />
+        <Label text="Fecha:" />
+        <DatePicker fx:id="datePicker" maxWidth="1.7976931348623157E308" promptText="DD/MM/AAAA" />
+        <Label text="Hora (Ej: 18:30):" />
+        <TextField fx:id="txtHora" promptText="18:30" />
+        <Label text="Valor Base Entrada ($):" />
+        <TextField fx:id="txtValorBase" promptText="15000" />
+        <Button text="Programar Función" onAction="#handleProgramar" maxWidth="1.7976931348623157E308" style="-fx-background-color: #2980b9; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8;" />
+    </VBox>
+
+    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+        <Label text="Funciones Programadas" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <TableView fx:id="tableFunciones" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn text="Película" prefWidth="160.0" />
+                <TableColumn text="Sala" prefWidth="90.0" />
+                <TableColumn text="Fecha y Hora" prefWidth="140.0" />
+                <TableColumn text="Valor Base" prefWidth="100.0" />
+                <TableColumn text="Estado" prefWidth="100.0" />
+            </columns>
+        </TableView>
+    </VBox>
+</HBox>

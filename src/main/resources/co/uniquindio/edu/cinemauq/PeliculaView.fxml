@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox spacing="20.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="co.uniquindio.edu.cinemauq.controller.PeliculaController">
+    <padding>
+        <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+    </padding>
+
+    <VBox spacing="10.0" prefWidth="300.0" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8;">
+        <Label text="Gestión de Películas" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <Label text="Código:" />
+        <TextField fx:id="txtCodigo" promptText="Ej: PEL-01" />
+        <Label text="Nombre:" />
+        <TextField fx:id="txtNombre" promptText="Título de la película" />
+        <Label text="Género:" />
+        <TextField fx:id="txtGenero" promptText="Ej: Ciencia Ficción" />
+        <Label text="Duración (min):" />
+        <TextField fx:id="txtDuracion" promptText="Ej: 120" />
+        <Label text="Clasificación:" />
+        <ComboBox fx:id="cbClasificacion" maxWidth="1.7976931348623157E308" promptText="Seleccione" />
+        <HBox spacing="10.0" style="-fx-padding: 10 0 0 0;">
+            <Button text="Registrar" onAction="#handleRegistrar" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;" HBox.hgrow="ALWAYS" maxWidth="1.7976931348623157E308"/>
+            <Button text="Limpiar" onAction="#handleLimpiar" style="-fx-background-color: #7f8c8d; -fx-text-fill: white;" />
+        </HBox>
+    </VBox>
+
+    <VBox spacing="10.0" HBox.hgrow="ALWAYS">
+        <Label text="Películas Registradas" style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+        <TableView fx:id="tablePeliculas" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn text="Código" prefWidth="90.0" />
+                <TableColumn text="Nombre" prefWidth="180.0" />
+                <TableColumn text="Género" prefWidth="110.0" />
+                <TableColumn text="Duración" prefWidth="90.0" />
+                <TableColumn text="Clasificación" prefWidth="110.0" />
+                <TableColumn text="Estado" prefWidth="100.0" />
+            </columns>
+        </TableView>
+    </VBox>
+</HBox>
