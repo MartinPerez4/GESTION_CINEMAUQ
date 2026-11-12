@@ -44,4 +44,18 @@ public class Asiento {
     public void setEstadoAsiento(EstadoAsiento estadoAsiento) {
         this.estadoAsiento = estadoAsiento;
     }
+
+
+    ////
+    public void ocupar() {
+        this.estadoAsiento = EstadoAsiento.OCUPADO;
+    }
+
+    public void liberar() {
+        this.estadoAsiento = EstadoAsiento.DISPONIBLE;
+    }
+
+    public boolean Disponible() {
+        return estadoAsiento == EstadoAsiento.DISPONIBLE;
+    }
 }
