@@ -1,5 +1,6 @@
 package co.uniquindio.edu.cinemauq.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cine {
@@ -185,10 +186,32 @@ public class Cine {
         }
         return null;
     }
-    //falta consultar disponibilidad de la función
-
-
     //los null podemos cambiarlos por algun aviso? es que no se como funcioné en con javafx help
+
+    ///////
+
+    public List<Asiento> consultarDisponibilidad(String codigoFuncion) {
+        List<Asiento> disponibles = new ArrayList<>();
+
+        for (int i = 0; i < listaFunciones.size(); i++) {
+            if (listaFunciones.get(i).getCodigo().equals(codigoFuncion)) {
+                List<Asiento> asientos = listaFunciones.get(i).getSala().getListaAsientos();
+
+                for (int j = 0; j < asientos.size(); j++) {
+                    if (asientos.get(j).Disponible()) {
+                        disponibles.add(asientos.get(j));
+                    }
+                }
+                return disponibles;
+            }
+        }
+        return disponibles;
+    }
+
+    //////
+
+
+
 
 
 

@@ -7,14 +7,14 @@ public class Sala {
     private String nombre;
     private int capacidad;
     private EstadoSala estadoSala;
-    private List<Asiento> Asiento;
+    private List<Asiento> listaAsientos;
 
     public Sala(String codigo, String nombre, int capacidad, EstadoSala estadoSala, List<Asiento> asiento) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.capacidad = capacidad;
         this.estadoSala = estadoSala;
-        Asiento = asiento;
+        listaAsientos = asiento;
     }
 
     public String getCodigo() {
@@ -49,11 +49,11 @@ public class Sala {
         this.estadoSala = estadoSala;
     }
 
-    public List<Asiento> getAsiento() {
-        return Asiento;
+    public List<Asiento> getListaAsientos() {
+        return listaAsientos;
     }
 
-    public void setAsiento(List<Asiento> asiento) {
-        Asiento = asiento;
+    public void setListaAsientos(List<Asiento> listaAsientos) {
+        this.listaAsientos = listaAsientos;
     }
 }

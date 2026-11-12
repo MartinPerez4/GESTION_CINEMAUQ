@@ -9,6 +9,7 @@ public class Tarifa {
         this.valor = valor;
     }
 
+
     public TipoEntrada getTipoEntrada() {
         return tipoEntrada;
     }
@@ -19,9 +20,5 @@ public class Tarifa {
 
     public double getValor() {
         return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
     }
 }
