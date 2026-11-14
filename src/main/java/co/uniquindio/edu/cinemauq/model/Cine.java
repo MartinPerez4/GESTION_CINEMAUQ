@@ -210,6 +210,72 @@ public class Cine {
 
     //////
 
+    public int obtenerPeliculasVendidas(Pelicula peliculaBuscada) {
+        int unidades = 0;
+
+        for (Venta venta : getListaVentas()) {
+
+            Funcion funcion = venta.getFuncion();
+
+            if (funcion != null && funcion.getPelicula().equals(peliculaBuscada)) {
+                unidades++;
+            }
+        }
+
+        return unidades;
+    }
+
+
+    public Pelicula obtenerPeliculaMasVendida() {
+        Pelicula masVendida = null;
+        int max = 0;
+        for (Pelicula pelicula : listaPeliculas) {
+
+            int unidades = obtenerPeliculasVendidas(pelicula);
+
+            if (unidades > max) {
+                max = unidades;
+                masVendida = pelicula;
+            }
+        }
+
+        return masVendida;
+    }
+
+
+    public double generarReporteIngresos() {
+        double totalIngresos = 0.0;
+
+        for (Venta venta : listaVentas) {
+
+            Tarifa tarifa = venta.getTarifa();
+
+            if (tarifa != null) {
+                totalIngresos += tarifa.getValor();
+            }
+        }
+
+        return totalIngresos;
+    }
+
+    public int generarReporteOcupacion(String codigoFuncion) {
+        int asientosOcupados = 0;
+
+        for (Venta venta : getListaVentas()) {
+
+            Funcion funcion = venta.getFuncion();
+
+            if (funcion != null) {
+
+                if (funcion.getCodigo().equals(codigoFuncion)) {
+                    asientosOcupados++;
+                }
+            }
+        }
+
+        return asientosOcupados;
+    }
+
 
 
 

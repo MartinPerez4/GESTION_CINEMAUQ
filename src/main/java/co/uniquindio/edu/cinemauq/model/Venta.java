@@ -7,15 +7,17 @@ public class Venta {
     private Asiento asiento;
     private String fechaHoraVenta;
     private EstadoVenta estadoVenta;
+    private Tarifa tarifa;
 
 
-    public Venta(String codigo, Cliente cliente, Funcion funcion, Asiento asiento, String fechaHoraVenta, EstadoVenta estadoVenta) {
+    public Venta(String codigo, Cliente cliente, Funcion funcion, Asiento asiento, String fechaHoraVenta, EstadoVenta estadoVenta, Tarifa tarifa) {
         this.codigo = codigo;
         this.cliente = cliente;
         this.funcion = funcion;
         this.asiento = asiento;
         this.fechaHoraVenta = fechaHoraVenta;
         this.estadoVenta = estadoVenta;
+        this.tarifa=tarifa;
     }
 
     public String getCodigo() {
@@ -64,5 +66,13 @@ public class Venta {
 
     public void setEstadoVenta(EstadoVenta estadoVenta) {
         this.estadoVenta = estadoVenta;
+    }
+
+    public Tarifa getTarifa() {
+        return tarifa;
+    }
+
+    public void setTarifa(Tarifa tarifa) {
+        this.tarifa = tarifa;
     }
 }
