@@ -2,7 +2,7 @@ package co.uniquindio.edu.cinemauq.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.time.LocalDateTime;
 public class Cine {
     private String nombre;
     private String nit;
@@ -276,7 +276,49 @@ public class Cine {
         return asientosOcupados;
     }
 
+    public Venta venderEntrada(Cliente cliente, Funcion funcion, Asiento asiento, TipoEntrada tipo) {
+        if (cliente == null || funcion == null || asiento == null || tipo == null)
+            return null;
+        if (funcion.getEstadoFuncion() != EstadoFuncion.PROGRAMADA)
+            return null;
+        if (!funcion.getSala().getListaAsientos().contains(asiento))
+            return null;
 
+        for (Venta v : listaVentas) {
+            if (v.getEstadoVenta() == EstadoVenta.ACTIVA && v.getFuncion().getCodigo().equals(funcion.getCodigo()) && v.getAsiento().getCodigo().equals(asiento.getCodigo())) {
+                return null;
+            }
+        }
+
+
+        Tarifa tarifa = null;
+        for (Tarifa t : listaTarifas) {
+            if (t.getTipoEntrada() == tipo) {
+                tarifa = t;
+                break;
+            }
+        }
+        if (tarifa == null)
+            return null;
+
+        String codigo = "V" + (listaVentas.size() + 1);
+        Venta venta = new Venta(codigo, cliente, funcion, asiento,
+                LocalDateTime.now().toString(), EstadoVenta.ACTIVA, tarifa);
+        listaVentas.add(venta);
+        return venta;
+    }
+
+    public boolean cancelarVenta(String codigoVenta) {
+        for (Venta v : listaVentas) {
+            if (v.getCodigo().equals(codigoVenta)) {
+                if (v.getEstadoVenta() == EstadoVenta.CANCELADA)
+                    return false;
+                v.setEstadoVenta(EstadoVenta.CANCELADA);
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 
